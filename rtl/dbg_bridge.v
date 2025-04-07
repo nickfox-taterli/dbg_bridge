@@ -4,13 +4,11 @@
  * 参数;
  *   CLK_FREQ  - 系统时钟频率 (Hz)
  *   BAUD_RATE - UART 波特率
- *   AXI_ID    - AXI 事务 ID
  */
 module dbg_bridge
 #(
     parameter CLK_FREQ         = 100_000_000,  // 默认 100MHz 时钟
-    parameter BAUD_RATE        = 115200,       // 默认 115200 波特率
-    parameter AXI_ID           = 4'd0          // 默认 AXI ID
+    parameter BAUD_RATE        = 115200        // 默认 115200 波特率
 )
 (
     // 时钟与复位
@@ -452,7 +450,6 @@ end
 assign mem_awvalid_o = mem_awvalid_q;
 assign mem_wvalid_o  = mem_wvalid_q;
 assign mem_awaddr_o  = {mem_addr_q[31:2], 2'b0};  // 地址对齐到4字节
-assign mem_awid_o    = AXI_ID;
 assign mem_awlen_o   = 8'b0;       // 单次传输
 assign mem_awburst_o = 2'b01;      // 增量突发
 assign mem_wlast_o   = 1'b1;       // 总是单次传输
@@ -487,7 +484,6 @@ end
 // AXI 读接口信号
 assign mem_arvalid_o = mem_arvalid_q;
 assign mem_araddr_o  = {mem_addr_q[31:2], 2'b0};  // 地址对齐到4字节
-assign mem_arid_o    = AXI_ID;
 assign mem_arlen_o   = 8'b0;       // 单次传输
 assign mem_arburst_o = 2'b01;      // 增量突发
 assign mem_rready_o  = 1'b1;       // 总是准备好接收数据
