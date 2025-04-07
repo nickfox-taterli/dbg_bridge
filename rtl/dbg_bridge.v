@@ -32,8 +32,6 @@ module dbg_bridge
     output          mem_awvalid_o,             // 写地址有效
     (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI AWADDR" *)
     output [31:0]   mem_awaddr_o,              // 写地址
-    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI AWID" *)
-    output [3:0]    mem_awid_o,                // 写事务 ID
     (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI AWLEN" *)
     output [7:0]    mem_awlen_o,               // 写突发长度
     (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI AWBURST" *)
@@ -56,8 +54,6 @@ module dbg_bridge
     input           mem_bvalid_i,              // 写响应有效
     (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI BRESP" *)
     input  [1:0]    mem_bresp_i,               // 写响应
-    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI BID" *)
-    input  [3:0]    mem_bid_i,                 // 写响应 ID
     (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI BREADY" *)
     output          mem_bready_o,              // 写响应准备好
 
@@ -68,8 +64,6 @@ module dbg_bridge
     output          mem_arvalid_o,             // 读地址有效
     (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI ARADDR" *)
     output [31:0]   mem_araddr_o,              // 读地址
-    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI ARID" *)
-    output [3:0]    mem_arid_o,                // 读事务 ID
     (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI ARLEN" *)
     output [7:0]    mem_arlen_o,               // 读突发长度
     (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI ARBURST" *)
@@ -82,8 +76,6 @@ module dbg_bridge
     input  [31:0]   mem_rdata_i,               // 读数据
     (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI RRESP" *)
     input  [1:0]    mem_rresp_i,               // 读响应
-    (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI RID" *)
-    input  [3:0]    mem_rid_i,                 // 读数据 ID
     (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI RLAST" *)
     input           mem_rlast_i,               // 读突发最后一个数据
     (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 AXI RREADY" *)
